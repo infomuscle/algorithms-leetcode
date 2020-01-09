@@ -1,15 +1,17 @@
 # 제출 코드
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        first = self.onewayChecker(s)
-        second = self.onewayChecker(s[::-1])
-
-        if first == True or second == True:
+        first = self.onewayChecker(s, "r")
+        if first == True:
             return True
-        else:
-            return False
 
-    def onewayChecker(self, s):
+        second = self.onewayChecker(s, "l")
+        if second == True:
+            return True
+
+        return False
+
+    def onewayChecker(self, s, fwd):
         end = len(s) - 1
         aaa = []
         leftIdx = 0
@@ -23,7 +25,10 @@ class Solution:
             else:
                 if len(aaa) == 0:
                     aaa.append(s[leftIdx])
-                    leftIdx += 1
+                    if fwd == "r":
+                        leftIdx += 1
+                    elif fwd == "l":
+                        rightIdx += 1
                 else:
                     return False
 
@@ -43,6 +48,11 @@ sample6 = "abca"
 # 출력
 sol = Solution()
 print(sol.validPalindrome(sample1))
+print(sol.validPalindrome(sample2))
+print(sol.validPalindrome(sample3))
+print(sol.validPalindrome(sample4))
+print(sol.validPalindrome(sample5))
+print(sol.validPalindrome(sample6))
 
 ### Code 1: 시간 초과 ###
 # def validPalindrome(s):
