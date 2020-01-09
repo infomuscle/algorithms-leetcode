@@ -1,4 +1,4 @@
-# 제출 코드
+# 제출 코드 - Runtime 7.67 Memory 100
 class Solution:
     def validPalindrome(self, s: str) -> bool:
         first = self.onewayChecker(s, "r")
