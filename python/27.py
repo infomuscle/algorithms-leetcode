@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 55.32 Memory 100
+# 제출 코드 - Runtime 82.84 Memory 100
 class Solution:
     def removeElement(self, nums, val):
         for i in range(len(nums)):
