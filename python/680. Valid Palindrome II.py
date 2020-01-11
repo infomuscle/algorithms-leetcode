@@ -83,7 +83,7 @@ print(sol.validPalindrome(sample6))
 #     else:
 #         return False
 
-### Code 2: 시간 초과 ###
+### Code 3: 시간 초과 ###
 # def validPalindrome(s):
 #     index = 0
 #
@@ -102,7 +102,7 @@ print(sol.validPalindrome(sample6))
 #             else:
 #                 return False
 
-### Code 3: 성공 - Runtime 6.44% Memory Usage 100% ###
+### Code 4: 성공 - Runtime 6.44% Memory Usage 100% ###
 # def validPalindrome(s):
 #     first = onewayChecker(s)
 #     second = onewayChecker(s[::-1])
