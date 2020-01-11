@@ -7,7 +7,6 @@ class Solution:
                 del nums[0]
             else:
                 del nums[0]
-
         return len(nums)
 
 sample1 = [3,2,2,3]
