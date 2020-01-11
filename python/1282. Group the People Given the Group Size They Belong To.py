@@ -1,7 +1,6 @@
 # 제출 코드 - Runtime 12.46 Memory 100
 class Solution:
     def groupThePeople(self, groupSizes):
-
         answers = []
         dict = {}
 
