@@ -1,11 +1,11 @@
-# 제출 코드 - Runtime 31.95 Memory 80.46
+# 제출 코드 - Runtime 99.59 Memory 42.56
 class Solution:
     def twoSum(self, nums, target):
-        vals = []
+        vals = {}
         for i in range(len(nums)):
             if nums[i] in vals:
-                return [vals.index(nums[i]), i]
-            vals.append(target-nums[i])
+                return [vals[nums[i]], i]
+            vals[target-nums[i]] = i
 
 
 sample1 = [[2,7,11,15], 9]
