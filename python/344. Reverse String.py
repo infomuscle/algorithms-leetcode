@@ -6,7 +6,6 @@ class Solution:
         # s.reverse()
 
 
-
 sample1 = ["h","e","l","l","o"]
 sample2 = ["H","a","n","n","a","h"]
 
@@ -18,7 +17,7 @@ sol.reverseString(sample2)
 # reverser(sample2)
 
 
-### Code 1 - 성
+### Code 1 - 성공
 # def reverser(l):
 #     for i in range(len(l)-1):
 #         l.insert(i, l.pop())
