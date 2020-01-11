@@ -23,16 +23,13 @@ class Solution:
                 temp = ""
         return chrList
 
-
 sample1 = ["alex", "aaleex"]
 sample2 = ["saeed", "ssaaedd"]
 sample3 = ["leelee", "lleeelee"]
 sample4 = ["laiden", "laiden"]
 sample5 = ["pyplrz", "ppyypllr"]
 
-
 sol = Solution()
-
 print(sol.isLongPressedName(sample1[0], sample1[1]))
 print(sol.isLongPressedName(sample2[0], sample2[1]))
 print(sol.isLongPressedName(sample3[0], sample3[1]))
