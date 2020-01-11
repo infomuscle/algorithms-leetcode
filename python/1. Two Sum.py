@@ -3,12 +3,9 @@ class Solution:
     def twoSum(self, nums, target):
         vals = []
         for i in range(len(nums)):
-            if i == 0:
-                vals.append(target - nums[i])
-            else:
-                if nums[i] in vals:
-                    return [vals.index(nums[i]), i]
-                vals.append(target-nums[i])
+            if nums[i] in vals:
+                return [vals.index(nums[i]), i]
+            vals.append(target-nums[i])
 
 
 sample1 = [[2,7,11,15], 9]
@@ -34,9 +31,6 @@ print(sol.twoSum(sample3[0], sample3[1]))
 # def twoSum(self, nums, target):
 #     vals = []
 #     for i in range(len(nums)):
-#         if i == 0:
-#             vals.append(target - nums[i])
-#         else:
-#             if nums[i] in vals:
-#                 return [vals.index(nums[i]), i]
-#             vals.append(target - nums[i])
+#         if nums[i] in vals:
+#             return [vals.index(nums[i]), i]
+#         vals.append(target - nums[i])
