@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 5.04 Memory 100
+# 제출 코드 - Runtime 17.71 Memory 100
 class Solution:
     def countSquares(self, matrix):
 
