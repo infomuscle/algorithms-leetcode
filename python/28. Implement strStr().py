@@ -1,16 +1,7 @@
-# 제출 코드 - Runtime 72.42 Memory 15.14
+# 제출 코드 - Runtime 87.70 Memory 34.72
 class Solution:
     def strStr(self, haystack, needle):
-
-        if len(needle) == 0:
-            return 0
-
-        idx = -1
-        for i in range(len(haystack) - len(needle) + 1):
-            if haystack[i:i + len(needle)] == needle:
-                idx = i
-                break
-
+        idx = haystack.find(needle)
         return idx
 
 
