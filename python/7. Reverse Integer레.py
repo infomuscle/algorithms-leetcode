@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 36.40 Memory 84.42
+# 제출 코드 - Runtime 90.54 Memory 29.42
 class Solution:
     def reverse(self, x: int) -> int:
         x = str(x)
