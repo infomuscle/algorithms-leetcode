@@ -1,38 +1,29 @@
 class Solution:
-    def tmaxSubArray(self, nums):
+    def maxSubArray(self, nums):
+        left, right = 0, 1
 
-        i = 0
-        j = 0
-
-        max = nums[i]
-        tmax = nums[i]
-
-        while True:
-            if i == len(nums) or j == len(nums):
-                break
-
-            if tmax + nums[j+1] > tmax:
-                tmax += nums[j+1]
-                j += 1
-            elif tmax - nums[i] > tmax:
-                tmax -= nums[i]
-                i += 1
-            elif tmax + nums[j+1] > tmax - nums[i]:
-                tmax += nums[j+1]
-                tmax -= nums[i]
-                i += 1
-                j += 1
-
-            if tmax > max:
-                max = tmax
+        max = nums[0]
+        while right < len(nums) or left < right:
+            s = sum(nums[left:right + 1])
+            if (s > max):
+                max = s
+                right += 1
+            else:
+                if right > left:
+                    left += 1
+                else:
+                    right += 1
 
         return max
 
-tc1 = [-2,1,-3,4,-1,2,1,-5,4]
+
+tc1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 tc2 = [1]
-tc3 = [-2,1]
+tc3 = [-2, 1]
+tc4 = [-1]
 
 sol = Solution()
-print(sol.tmaxSubArray(tc1))
-print(sol.tmaxSubArray(tc2))
-print(sol.tmaxSubArray(tc3))
+print(sol.maxSubArray(tc1))
+print(sol.maxSubArray(tc2))
+print(sol.maxSubArray(tc3))
+print(sol.maxSubArray(tc4))
