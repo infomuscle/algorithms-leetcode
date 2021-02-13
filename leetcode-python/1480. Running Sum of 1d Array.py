@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 5.77 Memory 74.56
+# 제출 코드 - Runtime 68.34 Memory 74.56
 class Solution:
     def runningSum(self, nums):
         answer = [nums[0]]
