@@ -1,12 +1,7 @@
-# 제출 코드 - Runtime 68.34 Memory 74.56
+# 제출 코드 - Runtime 68.34 Memory 45.75
 class Solution:
     def runningSum(self, nums):
-        answer = [nums[0]]
-
-        for i in range(1, len(nums)):
-            answer.append(answer[-1] + nums[i])
-
-        return answer
+        return [sum(nums[:i + 1]) for i in range(len(nums))]
 
 
 n1 = [1, 2, 3, 4]
