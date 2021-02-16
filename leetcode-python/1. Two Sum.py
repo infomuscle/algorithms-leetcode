@@ -5,18 +5,17 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] in vals:
                 return [vals[nums[i]], i]
-            vals[target-nums[i]] = i
+            vals[target - nums[i]] = i
 
 
-sample1 = [[2,7,11,15], 9]
-sample2 = [[3,2,4], 6]
-sample3 = [[3,3], 6]
+sample1 = [[2, 7, 11, 15], 9]
+sample2 = [[3, 2, 4], 6]
+sample3 = [[3, 3], 6]
 
 sol = Solution()
 print(sol.twoSum(sample1[0], sample1[1]))
 print(sol.twoSum(sample2[0], sample2[1]))
 print(sol.twoSum(sample3[0], sample3[1]))
-
 
 # Code 1 - Runtime 5.01 Memory 78.37
 # def twoSum(self, nums, target):
