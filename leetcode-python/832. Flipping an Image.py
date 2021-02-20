@@ -1,23 +1,12 @@
 # 제출 코드 - Runtime 99.05 Memory 83.02
 class Solution:
     def flipAndInvertImage(self, A):
-
-        reverse = []
+        answer = []
         for row in A:
             row.reverse()
-            reverse.append(row)
+            answer.append([r + 1 if r == 0 else r - 1 for r in row])
 
-        inverse = []
-        for row in reverse:
-            tmp = []
-            for r in row:
-                if r == 0:
-                    tmp.append(r + 1)
-                else:
-                    tmp.append(r - 1)
-            inverse.append(tmp)
-
-        return inverse
+        return answer
 
 
 sol = Solution()
