@@ -1,15 +1,8 @@
-# 제출 코드 - Runtime 82.08 Memory 94.15
+# 제출 코드 - Runtime 82.08 Memory 99.99
 class Solution:
     def kidsWithCandies(self, candies, extraCandies):
         max_candy = max(candies)
-        answer = []
-        for candy in candies:
-            if candy + extraCandies >= max_candy:
-                answer.append(True)
-            else:
-                answer.append(False)
-
-        return answer
+        return [True if candy + extraCandies >= max_candy else False for candy in candies]
 
 
 c1 = [2, 3, 5, 1, 3]
