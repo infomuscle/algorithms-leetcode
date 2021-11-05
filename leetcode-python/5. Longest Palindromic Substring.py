@@ -3,23 +3,38 @@ import time
 
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        for len_of_substr in range(len(s), 1, -1):
-            for start_idx in range(0, len(s) - len_of_substr + 1):
-                substr = s[start_idx:start_idx + len_of_substr]
-                if self.is_palindrome(substr):
-                    return substr
-        return s[0]
+        if len(s) == 1:
+            return s
 
-    def is_palindrome(self, s):
-        len_of_str = len(s)
-        half_idx = len_of_str // 2
-        front = s[:half_idx]
-        if len_of_str % 2 == 0:
-            rear = s[half_idx:]
-        else:
-            rear = s[half_idx + 1:]
+        l, r = 0, 1
 
-        return front == rear[::-1]
+        biggest = ""
+        while True:
+            if l + len(biggest) >= len(s):
+                break
+
+            front = s[l:r]
+            reversed_front = front[::-1]
+            rear1 = s[r + 1: r + 1 + r - l]
+            rear2 = s[r:r + r - l]
+            # print(l, r)
+            # print(s, front, rear1, rear2)
+
+            if rear1 == reversed_front:
+                substr = front + s[r] + reversed_front
+                biggest = max(biggest, substr, key=len)
+            elif rear2 == reversed_front:
+                substr = front + reversed_front
+                biggest = max(biggest, substr, key=len)
+
+            if r - l >= len(s) // 2:
+                r = l + len(biggest) - 1
+                l += 1
+                continue
+
+            r += 1
+
+        return biggest
 
 
 sol = Solution()
@@ -29,6 +44,9 @@ s2 = "cbbd"
 s3 = "a"
 s4 = "ac"
 s5 = "wsgdzojcrxtfqcfkhhcuxxnbwtxzkkeunmpdsqfvgfjhusholnwrhmzexhfqppatkexuzdllrbaxygmovqwfvmmbvuuctcwxhrmepxmnxlxdkyzfsqypuroxdczuilbjypnirljxfgpuhhgusflhalorkcvqfknnkqyprxlwmakqszsdqnfovptsgbppvejvukbxaybccxzeqcjhmnexlaafmycwopxntuisxcitxdbarsicvwrvjmxsapmhbbnuivzhkgcrshokkioagwidhmfzjwwywastecjsolxmhfnmgommkoimiwlgwxxdsxhuwwjhpxxgmeuzhdzmuqhmhnfwwokgvwsznfcoxbferdonrexzanpymxtfojodcfydedlxmxeffhwjeegqnagoqlwwdctbqnuxngrgovrjesrkjrfjawknbrsfywljscfvnjhczhyeoyzrtbkvvfvofykkwoiclgxyaddhpdoztdhcbauaagjmfzkkdqexkczfsztckdlujgqzjyuittnudpldjvsbwbzcsazjpxrwfafievenvuetzcxynnmskoytgznvqdlkhaowjtetveahpjguiowkiuvikwewmgxhgfjuzkgrkqhmxxavbriftadtogmhlatczusxkktcsyrnwjbeshifzbykqibghmmvecwwtwdcscikyzyiqlgwzycptlxiwfaigyhrlgtjocvajcnqyenxrnjgogeqtvkxllxpuoxargzgcsfwavwbnktchwjebvwwhfghqkcjhuhuqwcdsixrkfjxuzvhjxlyoxswdlwfytgbtqbeimzzogzrlovcdpseoafuxfmrhdswwictsctawjanvoafvzqanvhaohgndbsxlzuymvfflyswnkvpsvqezekeidadatsymbvgwobdrixisknqpehddjrsntkqpsfxictqbnedjmsveurvrtvpvzbengdijkfcogpcrvwyf"
+s6 = "bb"
+s7 = "abb"
+s8 = "ccc"
 
 print(sol.longestPalindrome(s1))
 print(sol.longestPalindrome(s2))
@@ -38,3 +56,7 @@ print(sol.longestPalindrome(s4))
 start = time.time()
 print(sol.longestPalindrome(s5))
 print(time.time() - start)
+
+print(sol.longestPalindrome(s6))
+print(sol.longestPalindrome(s7))
+print(sol.longestPalindrome(s8))
