@@ -1,21 +1,21 @@
-# 제출 코드 - Runtime 84.57 Memory 19.62
-from collections import defaultdict
+# 제출 코드 - Runtime 93.99 Memory 86.09
 from typing import List
 
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        nums_map = defaultdict(int)
+        n = nums[0]
+        for num in nums[1:]:
+            n = n ^ num
 
-        for num in nums:
-            nums_map[num] += 1
-
-        for key in nums_map:
-            if nums_map[key] == 1:
-                return key
+        return n
 
 
 n1 = [2, 2, 1]
+n2 = [4, 1, 2, 1, 2]
+n3 = [1]
 
 sol = Solution()
 print(sol.singleNumber(n1))
+print(sol.singleNumber(n2))
+print(sol.singleNumber(n3))
