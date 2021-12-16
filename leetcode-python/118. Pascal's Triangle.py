@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 21.91 Memory 82.56
+# 제출 코드 - Runtime 96.19 Memory 24.85
 from typing import List
 
 
