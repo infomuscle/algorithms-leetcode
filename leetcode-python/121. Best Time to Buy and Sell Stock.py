@@ -8,10 +8,8 @@ class Solution:
         stock = prices[0]
 
         for i in range(1, len(prices)):
-            if prices[i] - stock > max_profit:
-                max_profit = prices[i] - stock
-            if prices[i] < stock:
-                stock = prices[i]
+            max_profit = max(prices[i] - stock, max_profit)
+            stock = min(prices[i], stock)
 
         return max_profit
 
