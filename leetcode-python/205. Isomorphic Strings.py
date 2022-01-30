@@ -4,24 +4,20 @@ class Solution:
 
         s_map = dict()
         idx_s = 0
+        converted_s = ""
         for c in s:
             if c not in s_map:
                 s_map[c] = idx_s
                 idx_s += 1
+            converted_s += str(s_map[c]) + " "
 
         t_map = dict()
         idx_t = 0
+        converted_t = ""
         for c in t:
             if c not in t_map:
                 t_map[c] = idx_t
                 idx_t += 1
-
-        converted_s = ""
-        for c in s:
-            converted_s += str(s_map[c]) + " "
-
-        converted_t = ""
-        for c in t:
             converted_t += str(t_map[c]) + " "
 
         return converted_s == converted_t
