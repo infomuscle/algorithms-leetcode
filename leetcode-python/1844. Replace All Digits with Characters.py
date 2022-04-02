@@ -1,17 +1,14 @@
-# 제출 코드 - Runtime 95.61 Memory 13.79
+# 제출 코드 - Runtime 96.34 Memory 13.79
 class Solution:
     def replaceDigits(self, s: str) -> str:
         answer = ""
         for i in range(len(s)):
             if s[i].isdigit():
-                answer += self.shift(s[i - 1], int(s[i]))
+                answer += chr(ord(s[i - 1]) + int(s[i]))
             else:
                 answer += s[i]
 
         return answer
-
-    def shift(self, c, x):
-        return chr(ord(c) + x)
 
 
 sol = Solution()
