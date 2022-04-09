@@ -1,17 +1,10 @@
 # 제출 코드 - Runtime 95.81 Memory 19.20
 class Solution:
     def getRow(self, rowIndex):
-        pascal = [[1], [1, 1]]
+        pascal = [[1]]
 
-        if rowIndex < 2:
-            return pascal[rowIndex]
-
-        for r in range(2, rowIndex + 1):
-            row = [1]
-            for c in range(r - 1):
-                row.append(pascal[r - 1][c] + pascal[r - 1][c + 1])
-            row.append(1)
-            pascal.append(row)
+        for r in range(1, rowIndex + 1):
+            pascal.append([1] + [pascal[r - 1][c] + pascal[r - 1][c + 1] for c in range(0, r - 1)] + [1])
 
         return pascal[rowIndex]
 
