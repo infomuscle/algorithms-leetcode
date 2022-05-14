@@ -1,26 +1,21 @@
 # 제출 코드 - Runtime 90.19 Memory 13.42
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-
         inorder = []
-        if root == None:
-            return inorder
 
         visited = set()
         stack = [root]
         while len(stack) != 0:
             node = stack.pop()
+            if node == None:
+                visited.add(node)
+                continue
 
-            if ((node.left == None) or (node.left in visited)) and node not in visited:
+            if node.left in visited and node not in visited:
                 inorder.append(node.val)
                 visited.add(node)
 
-            if node.right != None and node.right not in visited:
-                stack.append(node.right)
-            if node not in visited:
-                stack.append(node)
-            if node.left != None and node.left not in visited:
-                stack.append(node.left)
+            stack.extend(filter(lambda x: x not in visited, [node.right, node, node.left]))
 
         return inorder
 
