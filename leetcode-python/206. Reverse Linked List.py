@@ -1,23 +1,19 @@
-# 제출 코드 - Runtime 32.49 Memory 28.55
+# 제출 코드 - Runtime 53.44 Memory 56.29
 class Solution:
     def reverseList(self, head):
         if not head:
             return head
 
-        map = dict()
-
+        next_node = head.next
         node = head
-        while node.next:
-            map[node.next] = node
-            node = node.next
+        head.next = None
+        while next_node:
+            next_next_node = next_node.next
+            next_node.next = node
+            node = next_node
+            next_node = next_next_node
 
-        head = node
-        while node in map:
-            node.next = map[node]
-            node = node.next
-        node.next = None
-
-        return head
+        return node
 
 
 # Definition for singly-linked list.
