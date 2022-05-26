@@ -17,6 +17,7 @@ sol = Solution()
 
 n1 = 16
 n2 = 14
+n3 = 35
 
 print(sol.isPerfectSquare(n1))
 print(sol.isPerfectSquare(n2))
