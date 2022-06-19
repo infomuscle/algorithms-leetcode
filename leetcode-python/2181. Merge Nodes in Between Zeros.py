@@ -1,25 +1,20 @@
-# 제출 코드 - Runtime 91.14 Memory 41.6
+# 제출 코드 - Runtime 77.06 Memory 15.80
 class Solution:
     def mergeNodes(self, head):
 
-        result = []
+        merged_head = ListNode()
+        merged_current = merged_head
 
-        current_node = head.next
-        merged = 0
-        while current_node:
-            if current_node.val == 0:
-                result.append(merged)
-                merged = 0
-            merged += current_node.val
-            current_node = current_node.next
-
-        new_head = ListNode(result[0], None)
-        current = new_head
-        for i in range(1, len(result)):
-            current.next = ListNode(result[i], None)
+        current = head.next
+        while current.next:
+            if current.val == 0:
+                merged_current.next = ListNode()
+                merged_current = merged_current.next
+            else:
+                merged_current.val += current.val
             current = current.next
 
-        return new_head
+        return merged_head
 
 
 # Definition for singly-linked list.
