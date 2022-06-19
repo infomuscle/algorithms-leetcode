@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 52.43 Memory 64.86
+# 제출 코드 - Runtime 57.91 Memory 25.20
 from collections import deque, defaultdict
 
 
@@ -6,22 +6,21 @@ class Solution:
     def deepestLeavesSum(self, root):
 
         level_map = defaultdict(list)
-        level_map[1].append(root.val)
 
-        queue = deque([root])
         level = 1
+        level_map[level].append(root.val)
+        queue = deque([root])
         while queue:
             level += 1
             for i in range(len(queue)):
                 node = queue.popleft()
+                level_map[level].append(node.val)
                 if node.left:
                     queue.append(node.left)
-                    level_map[level].append(node.left.val)
                 if node.right:
                     queue.append(node.right)
-                    level_map[level].append(node.right.val)
 
-        return sum(level_map[max(level_map)])
+        return sum(level_map[level])
 
 
 # Definition for a binary tree node.
