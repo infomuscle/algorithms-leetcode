@@ -4,7 +4,7 @@ import math
 
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        s = list(map(int, [c for c in str(n)]))
+        s = [int(c) for c in str(n)]
 
         return math.prod(s) - sum(s)
 
