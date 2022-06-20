@@ -3,23 +3,19 @@ from collections import deque
 
 
 class Solution:
-    perms = []
-
     def permute(self, nums):
-        self.perms = []
 
-        self.permutation(deque(nums), [])
-        return self.perms
+        return self.permutation(deque(nums), [])
 
     def permutation(self, nums_left, perm):
-        if len(nums_left) == 0:
-            self.perms.append(perm)
-            return perm
-
         result = []
+        if len(nums_left) == 0:
+            result.append(perm)
+            return result
+
         for i in range(len(nums_left)):
             num = nums_left.popleft()
-            self.permutation(nums_left, perm + [num])
+            result.extend(self.permutation(nums_left, perm + [num]))
             nums_left.append(num)
 
         return result
