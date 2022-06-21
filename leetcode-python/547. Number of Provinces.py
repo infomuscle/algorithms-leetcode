@@ -1,25 +1,23 @@
-# 제출 코드 - Runtime 17.40 Memory 96.08
-from collections import deque
-
-
+# 제출 코드 - Runtime 96.78 Memory 51.72
 class Solution:
+    def explore(self, province, isConnected, visited):
+        size = len(isConnected)
+        for other in range(size):
+            if other not in visited and isConnected[province][other] == 1:
+                visited.add(other)
+                self.explore(other, isConnected, visited)
+
     def findCircleNum(self, isConnected):
         size = len(isConnected)
+        provinces = 0
+        visited = set()
+        for province in range(size):
+            if province not in visited:
+                visited.add(province)
+                provinces += 1
+                self.explore(province, isConnected, visited)
 
-        cnt = 0
-        for i in range(size):
-            for j in range(size):
-                if isConnected[i][j] == 1:
-                    connections_of_i = deque([j])
-                    while connections_of_i:
-                        current_i = connections_of_i.popleft()
-                        for j_in_i in range(size):
-                            if isConnected[current_i][j_in_i] == 1:
-                                connections_of_i.append(j_in_i)
-                                isConnected[current_i][j_in_i] = 0
-                    cnt += 1
-
-        return cnt
+        return provinces
 
 
 sol = Solution()
