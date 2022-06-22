@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 53.76 Memory 32.43
+# 제출 코드 - Runtime 85.36 Memory 98.41
 class Solution:
     def partition(self, head, x: int):
         if not head:
