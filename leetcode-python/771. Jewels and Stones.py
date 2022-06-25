@@ -1,17 +1,8 @@
-# 제출 코드 - Runtime 40.00 Memory 10.89
+# 제출 코드 - Runtime 56.93 Memory 10.89
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-
-        jewel_set = set()
-        for jewel in jewels:
-            jewel_set.add(jewel)
-
-        cnt = 0
-        for stone in stones:
-            if stone in jewel_set:
-                cnt += 1
-
-        return cnt
+        jewel_set = set(jewels)
+        return len(list(filter(lambda x: x in jewel_set, stones)))
 
 
 sol = Solution()
