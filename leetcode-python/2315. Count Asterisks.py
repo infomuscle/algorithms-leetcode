@@ -1,19 +1,13 @@
-# 제출 코드 - Runtime 58.41 Memory 11.10
+# 제출 코드 - Runtime 60.63 Memory 11.10
 class Solution:
     def countAsterisks(self, s: str) -> int:
-
-        stack = []
-
         asterisks = 0
+        flag = False
         for c in s:
             if c == "|":
-                if len(stack) == 0:
-                    stack.append(c)
-                else:
-                    stack = []
+                flag = not flag
                 continue
-            if len(stack) == 0:
-                if c == "*":
-                    asterisks += 1
+            if not flag and c == "*":
+                asterisks += 1
 
         return asterisks
