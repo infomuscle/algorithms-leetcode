@@ -1,4 +1,4 @@
-# 제출 코드 - Runtime 19.17 Memory 99.37
+# 제출 코드 - Runtime 64.90 Memory 99.37
 from collections import deque
 
 
@@ -6,14 +6,14 @@ class Solution:
     def isBalanced(self, root):
         if not root:
             return True
-
         queue = deque([root])
         while queue:
             node = queue.popleft()
+
             depth_left = self.calculate_depth(node.left)
             depth_right = self.calculate_depth(node.right)
-            diff = abs(depth_left - depth_right)
-            if diff > 1:
+            difference = abs(depth_left - depth_right)
+            if difference > 1:
                 return False
 
             if node.left:
